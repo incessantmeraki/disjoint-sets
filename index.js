@@ -23,7 +23,7 @@ Disjoint.prototype.union = function (s1, s2) {
     c = s1
   }
   this._links[c] = p
-  if (this._ranks[s1] == this._ranks[s2]) this._ranks[p]++
+  if (this._ranks[s1] === this._ranks[s2]) this._ranks[p]++
   return p
 }
 
@@ -31,7 +31,8 @@ Disjoint.prototype.find = function (element) {
   var p, c
   c = -1
 
-  while (this._links[element] !== 1) {
+  while (this._links[element] !== -1) {
+    console.log('elements', element)
     p = this._links[element]
     this._links[element] = c
     c = element
@@ -47,3 +48,5 @@ Disjoint.prototype.find = function (element) {
   }
   return p
 }
+
+module.exports = Disjoint
