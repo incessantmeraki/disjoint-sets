@@ -49,4 +49,19 @@ Disjoint.prototype.find = function (element) {
   return p
 }
 
+Disjoint.prototype.size = function () {
+  var counter = 0
+
+  this._links.forEach((val) => {
+    if (val === -1)
+      counter++
+  })
+
+  return counter
+}
+
+Disjoint.prototype.esize = function () {
+  return this._links.length
+}
+
 module.exports = Disjoint
